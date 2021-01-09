@@ -265,7 +265,7 @@ else if (text == '$closegc'){
 conn.sendMessage(id, 'SUCCES, GRUP TELAH DITUTUP' ,MessageType.text, { quoted: m } );
 }
 if (text.includes("$simi")){
-const teks = text.replace(/$ , "")
+const teks = text.replace(/#simi /, "")
 axios.get(`https://st4rz.herokuapp.com/api/simsimi?kata=${teks}`).then((res) => {
     let hasil = `${res.data.result}`;
     conn.sendMessage(id, hasil ,MessageType.text);
