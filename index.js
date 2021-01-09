@@ -90,9 +90,15 @@ conn.on('message-new', async(m) =>
    console.log(`[ ${moment().format("HH:mm:ss")} ] => Nomor: [ ${id.split("@s.whatsapp.net")[0]} ] => ${text}`);
    // Groups
 
-else if (text == 'bot'){
-conn.sendMessage(id, 'Iya, kenapa sayang 🐊. Kenapa gak ketik *$menu* aja biar romantis.' ,MessageType.text);
+if (text.includes('bot')) {
+ var nomor = m.participant
+ const options = {
+       text: `Iya, kenapa sayang 🐊. Kenapa gak ketik *$menu* aja biar romantis`,
+       contextInfo: { mentionedJid: [nomor] }
+ }
+ conn.sendMessage(id, options, MessageType.text, { quoted: m })
 }
+
 
 // Fitur
 
