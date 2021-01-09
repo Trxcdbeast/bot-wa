@@ -1,9 +1,9 @@
-const  XBOT = 'AMPIBI'; // Nama Bot Whatsapp
-const instagram = 'https://instagram.com/affis_saputro123'; // Nama Instagramlu cok
-const nomer = 'https://Wa.me/+6282334297175'; // Nomor whatsapplu cok
-const aktif = 'Tergantung kuota'; // Kapan bot lu aktif
+const  XBOT = 'IRC Groups'; // Nama Bot Whatsapp
+const instagram = 'https://instagram.com/ircofhurapollz'; // Nama Instagramlu cok
+const nomer = 'https://Wa.me/+6289668267799'; // Nomor whatsapplu cok
+const aktif = 'Tergantung Kuota'; // Kapan bot lu aktif
 const groupwa = 'comming soon'; // OFFICIAL GRUP LU 1
-const youtube = 'https://youtube.com/channel/UCYKxsg7iF9a9IZyXQRNsvqw'; 
+const youtube = 'https://youtube.com/channel/'; 
 const qrcode = require("qrcode-terminal");
 const moment = require("moment");
 const cheerio = require("cheerio");
@@ -23,7 +23,7 @@ const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
             + 'VERSION:3.0\n' 
             + 'FN:affis\n' // full name
             + 'ORG:Owner  XBOT Bot;\n' // the organization of the contact
-            + 'TEL;type=CELL;type=VOICE;waid=6282334297175:+62 823-3429-7175\n' // WhatsApp ID + phone number
+            + 'TEL;type=CELL;type=VOICE;waid=6289668267799:+62 896-6826-7799\n' // WhatsApp ID + phone number
             + 'END:VCARD'
 
 const
@@ -142,8 +142,8 @@ conn.sendMessage(id, 'Ya?, Ketik #menu/#info/#donasi Contoh #menu' ,MessageType.
 else if (text == 'Asu'){
 conn.sendMessage(id, 'Lu Asw' ,MessageType.text);
 }
-else if (text == '#owner'){
-conn.sendMessage(id, 'Owner XBOT wa.me/+6282334297175' ,MessageType.text);
+else if (text == '$owner'){
+conn.sendMessage(id, 'Owner XBOT wa.me/+6289668267799' ,MessageType.text);
 }
 else if (text == 'affis'){
 conn.sendMessage(id, 'Aku BOT nya XBOT' ,MessageType.text);
@@ -264,14 +264,14 @@ else if (text == '$closegc'){
    conn.groupSettingChange (hasil, GroupSettingChange.messageSend, true);
 conn.sendMessage(id, 'SUCCES, GRUP TELAH DITUTUP' ,MessageType.text, { quoted: m } );
 }
-if (text.includes("$simi")){
+if (text.includes("$ ")){
 const teks = text.replace(/#simi /, "")
 axios.get(`https://st4rz.herokuapp.com/api/simsimi?kata=${teks}`).then((res) => {
-    let hasil = `${res.data.result}`;
+    let hasil = `${id.split("@s.whatsapp.net")[0]} ${res.data.result}`;
     conn.sendMessage(id, hasil ,MessageType.text);
 })
 }
-else if (text == '#menu'){
+else if (text == '$menu'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/id').json()
 var date = new Date();
 var tahun = date.getFullYear();
@@ -549,7 +549,7 @@ let err = fs.readFileSync('mp3/' + 'tariksis' + '.wav')
 if (text.includes('bot')) {
  var nomor = m.participant
  const options = {
-       text: `apa manggil manggil tinggal ketik #menu @${nomor.split("@s.whatsapp.net")[0]}, Ketik #menu untuk menampilkan perintah yaa`,
+       text: `apa manggil manggil tinggal ketik $menu @${nomor.split("@s.whatsapp.net")[0]}, Ketik $menu untuk menampilkan perintah yaa`,
        contextInfo: { mentionedJid: [nomor] }
  }
  conn.sendMessage(id, options, MessageType.text, { quoted: m })
